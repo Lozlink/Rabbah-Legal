@@ -7,31 +7,29 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 w-full shadow-sm z-50 bg-[#c0c0c0] opacity-75 rounded-sm">
-      {/* Main container */}
-      <div className="w-full mx-auto px-8 py-4 flex justify-between items-center">
+        <div className="w-full mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
         {/* Logo + Title */}
         <div className="flex items-center gap-3 min-w-max">
           <img 
             src={logo} 
             alt="Rabbah Legal Logo" 
-            className="h-40 w-auto mr-9" 
+            className="h-20 md:h-28 lg:h-40 w-auto mr-4 md:mr-9" 
           />
-          {/* <h1 className="text-3xl font-bold font-serif">Rabbah Legal</h1> */}
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-20 mr-20 ml-50" >
+        <nav className="hidden md:flex gap-8 md:gap-12 lg:gap-20 mr-4 md:mr-12 lg:mr-20 ml-4 md:ml-12 lg:ml-20">
           {[
-            { label: "Home", path: "/" },  // Special case for Home
+            { label: "Home", path: "/" },
             { label: "About", path: "/about" },
             { label: "Services", path: "/services" },
-            { label: "Contact", path: "/contact" }]
-            .map((item) => (
+            { label: "Contact", path: "/contact" },
+          ].map((item) => (
             <NavLink
               key={item.label}
               to={item.path}
               className={({ isActive }) =>
-                `text-[#050524] text-[36px] hover:text-white transition-colors ${
+                `text-[#050524] text-xl md:text-2xl lg:text-3xl hover:text-white transition-colors ${
                   isActive ? "font-medium underline" : "font-light"
                 }`
               }
@@ -43,7 +41,7 @@ const Navbar = () => {
 
         {/* Mobile Hamburger Button */}
         <button
-          className="md:hidden text-silver focus:outline-none"
+          className="md:hidden text-[#050524] focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,17 +58,17 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-navy w-full px-6 py-4 space-y-3">
           {[
-            { label: "Home", path: "/" },  // Special case for Home
+            { label: "Home", path: "/" },
             { label: "About", path: "/about" },
             { label: "Services", path: "/services" },
-            { label: "Contact", path: "/contact" }]
-              .map((item) => (
+            { label: "Contact", path: "/contact" },
+          ].map((item) => (
             <NavLink
               key={item.label}
               to={item.path}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block text-[#050524] hover:text-white ${
+                `block text-[#050524] text-lg hover:text-white ${
                   isActive ? "font-semibold underline" : ""
                 }`
               }
