@@ -24,9 +24,14 @@ const Navbar = () => {
 
         {/* Centered Title and Desktop Navigation */}
         <div className="hidden md:flex justify-center flex-1">
-          <span className="font-serif text-[#050524] text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+          <motion.span 
+          className="font-serif text-[#050524] text-xl md:text-2xl lg:text-3xl xl:text-4xl cursor-pointer transition-all duration-300 hover:text-white hover:scale-105 shadow-lg hover:shadow-xl"
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5 }}
+          >
             Rabbah Legal
-          </span>
+          </motion.span>
         </div>
         
         {/* Desktop Navigation */}
@@ -41,7 +46,7 @@ const Navbar = () => {
               key={item.label}
               to={item.path}
               className={({ isActive }) =>
-                `text-[#050524] text-[18px] md:text-[20px] lg:text-[28px] xl:text-[36px] hover:text-white transition-colors ${
+                `font-serif text-[#050524] text-[18px] md:text-[20px] lg:text-[28px] xl:text-[36px] hover:text-white transition-colors ${
                   isActive ? "font-medium underline" : "font-light"
                 }`
               }
