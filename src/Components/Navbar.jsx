@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/RabbahLogo.jpg";
 import { useState } from "react";
+import {  motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,29 +56,37 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-navy w-full px-6 py-4 space-y-3">
-          {[
-            { label: "Home", path: "/" },
-            { label: "About", path: "/about" },
-            { label: "Services", path: "/services" },
-            { label: "Contact", path: "/contact" },
-          ].map((item) => (
-            <NavLink
-              key={item.label}
-              to={item.path}
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `block text-[#050524] text-lg hover:text-white ${
-                  isActive ? "font-semibold underline" : ""
-                }`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+           initial={{opacity: 0, y: -10}} 
+           animate={{opacity: 1, y: 0}}
+           exit={{opacity: 0, y: -10}}
+           transition={{duration: 0.25}} 
+           className="md:hidden bg-navy w-full px-6 py-4 space-y-3"
+          >
+            {[
+              { label: "Home", path: "/" },
+              { label: "About", path: "/about" },
+              { label: "Services", path: "/services" },
+              { label: "Contact", path: "/contact" },
+            ].map((item) => (
+              <NavLink
+                key={item.label}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `block text-[#050524] text-lg hover:text-white ${
+                    isActive ? "font-semibold underline" : ""
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>  
     </header>
   );
 };
