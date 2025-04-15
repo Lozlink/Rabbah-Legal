@@ -1,26 +1,37 @@
+/* eslint-disable no-unused-vars */
 import { NavLink } from "react-router-dom";
 import logo from "../assets/RabbahLogo.jpg";
 import { useState } from "react";
-import {  motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 w-full shadow-sm z-50 bg-[#c0c0c0] opacity-75 rounded-sm">
+    <header className="sticky top-0 w-full shadow-sm z-50 bg-[#c0c0c0] opacity-75 rounded-sm bg-navbar-pattern bg-cover bg-center bg-opacity-60 py-3">
         <div className="w-full mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
         {/* Logo + Title */}
         <div className="flex items-center gap-3 min-w-max">
           <img 
             src={logo} 
             alt="Rabbah Legal Logo" 
-            className="h-20 md:h-28 lg:h-40 w-auto mr-4 md:mr-9" 
+            className="h-20 md:h-24 lg:h-32 w-auto"
           />
+          <span className="font-serif text-[#050524] text-lg md:hidden">
+            Rabbah Legal
+          </span>
         </div>
 
+        {/* Centered Title and Desktop Navigation */}
+        <div className="hidden md:flex justify-center flex-1">
+          <span className="font-serif text-[#050524] text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+            Rabbah Legal
+          </span>
+        </div>
+        
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 md:gap-12 lg:gap-20 mr-4 md:mr-12 lg:mr-20 ml-4 md:ml-12 lg:ml-20">
-          {[
+        <nav className="hidden md:flex gap-4 md:gap-6 lg:gap-12 xl:gap-20 mr-4">
+          {[ 
             { label: "Home", path: "/" },
             { label: "About", path: "/about" },
             { label: "Services", path: "/services" },
@@ -30,7 +41,7 @@ const Navbar = () => {
               key={item.label}
               to={item.path}
               className={({ isActive }) =>
-                `text-[#050524] text-xl md:text-2xl lg:text-3xl hover:text-white transition-colors ${
+                `text-[#050524] text-[18px] md:text-[20px] lg:text-[28px] xl:text-[36px] hover:text-white transition-colors ${
                   isActive ? "font-medium underline" : "font-light"
                 }`
               }
@@ -59,13 +70,13 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-           initial={{opacity: 0, y: -10}} 
-           animate={{opacity: 1, y: 0}}
-           exit={{opacity: 0, y: -10}}
-           transition={{duration: 0.25}} 
-           className="md:hidden bg-navy w-full px-6 py-4 space-y-3"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-navy w-full px-6 py-4 space-y-3"
           >
-            {[
+            {[ 
               { label: "Home", path: "/" },
               { label: "About", path: "/about" },
               { label: "Services", path: "/services" },
