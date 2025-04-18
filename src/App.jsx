@@ -11,7 +11,7 @@ import Footer from './Components/Footer'
 import { AnimatePresence } from "framer-motion";
 import AnimatedPage from './Components/AnimatedPage'
 import './App.css'
-
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const location = useLocation();
@@ -61,6 +61,7 @@ function App() {
     </AnimatePresence>
     </div>
       <Footer />
+    <Analytics />  
     </div>  
   );
 }
