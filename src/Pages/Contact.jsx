@@ -202,17 +202,18 @@ const Contact = () => {
         </div>
 
         {/* Map Section */}
-        <div className="h-96 w-full bg-gray-200">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424143.87549396267!2d150.60234949522558!3d-33.847805329796635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney%20NSW!5e0!3m2!1sen!2sau!4v1744615802732!5m2!1sen!2sau"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            className="filter grayscale(20%) contrast(1.1)"
-            title="Office Location Map"
-          ></iframe>
+        <h1 className="text-4xl md:text-5xl font-serif mb-6 text-[#050524]">Contact us for expert legal advice today.</h1>
+        <div className="h-96 w-full flex justify-center items-center pb-20" >
+          <div className="w-[600px] h-full rounded-xl overflow-hidden shadow-lg ">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424143.87549396267!2d150.60234949522558!3d-33.847805329796635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney%20NSW!5e0!3m2!1sen!2sau!4v1744615802732!5m2!1sen!2sau"
+              className="w-full h-full border-0 filter grayscale-[20%] contrast-110"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Office Location Map"
+            ></iframe>
+            </div>
         </div>
       </div>
     </AnimatedPage>  
