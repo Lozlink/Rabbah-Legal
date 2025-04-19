@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import AnimatedPage from '../Components/AnimatedPage';
-
+import why from  '../assets/why.jpg'
 const Home = () => {
   return (
     <AnimatedPage>
@@ -46,11 +46,12 @@ const Home = () => {
         </section>
 
         {/* 2. Why Choose Us */}
-        <section className="bg-[#c0c0c0] py-16 lg:py-24 opacity-75 rounded-sm text-[#050524]">
+        <section style={{ backgroundImage: `url(${why})` }}
+        className=  "py-16 lg:py-24 opacity-75 rounded-sm bg-cover">
           <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Why Rabbah Legal?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Why Rabbah Legal?</h2>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-12 items-center text-white font-bold ">
               <div>
                 <ul className="space-y-6">
                   {[
@@ -60,8 +61,8 @@ const Home = () => {
                     "✓ Transparent pricing"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <span className="text-[#c0c0c0] mr-3 mt-1">•</span>
-                      <span className="text-lg">{item}</span>
+                      <span className="text- mr-3 mt-1">•</span>
+                      <span className="text-lg " >{item}</span>
                     </li>
                   ))}
                 </ul>

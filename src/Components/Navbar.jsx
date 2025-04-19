@@ -1,31 +1,40 @@
 /* eslint-disable no-unused-vars */
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/RabbahLogo.jpg";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import banner from "../assets/banner.png";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 w-full shadow-sm z-50 bg-[#c0c0c0] opacity-75 rounded-sm bg-navbar-pattern bg-cover bg-center bg-opacity-60 py-3">
+      <header
+        style={{ backgroundImage: `url(${banner})` }}
+          className="sticky top-0 w-full shadow-sm z-50 opacity-75 rounded-sm bg-cover bg-center bg-no-repeat mb-10"
+      >
         <div className="w-full mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
         {/* Logo + Title */}
         <div className="flex items-center gap-3 min-w-max">
+         <Link to='/'>
           <img 
             src={logo} 
             alt="Rabbah Legal Logo" 
             className="h-20 md:h-24 lg:h-32 w-auto"
           />
-          <span className="font-serif text-[#050524] text-lg md:hidden">
+          </Link>
+          <Link to='/'>
+          <span className="font-serif text-[#c0c0c0] text-lg md:hidden">
             Rabbah Legal
           </span>
+          </Link>
         </div>
 
         {/* Centered Title and Desktop Navigation */}
         <div className="hidden md:flex justify-center flex-1">
           <motion.span 
-          className="font-serif text-[#050524] text-xl md:text-2xl lg:text-3xl xl:text-4xl cursor-pointer transition-all duration-300 hover:text-white hover:scale-105 shadow-lg hover:shadow-xl"
+          className="font-serif text-[#c0c0c0] text-xl md:text-2xl lg:text-3xl xl:text-4xl cursor-pointer transition-all duration-300 hover:text-white hover:scale-105 shadow-lg hover:shadow-xl"
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.5 }}
@@ -46,7 +55,7 @@ const Navbar = () => {
               key={item.label}
               to={item.path}
               className={({ isActive }) =>
-                `font-serif text-[#050524] text-[18px] md:text-[20px] lg:text-[28px] xl:text-[36px] hover:text-white transition-colors ${
+                `font-serif text-[#c0c0c0] text-[18px] md:text-[20px] lg:text-[28px] xl:text-[36px] hover:text-white transition-colors ${
                   isActive ? "font-medium underline" : "font-light"
                 }`
               }
@@ -79,7 +88,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-navy w-full px-6 py-4 space-y-3"
+            className="md:hidden bg-[#c0c0c0] bg-=opacity-40 w-full px-6 py-4 space-y-3"
           >
             {[ 
               { label: "Home", path: "/" },

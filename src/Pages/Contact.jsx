@@ -194,7 +194,7 @@ const Contact = () => {
 
               <div className="mt-12 bg-navy text-white p-6 rounded-lg">
                 <h3 className="text-xl font-bold mb-3">Emergency Legal Assistance?</h3>
-                <p className="mb-4 text-silver">For urgent criminal defense matters, call our 24/7 emergency line:</p>
+                <p className="mb-4 text-silver">For urgent criminal defense matters, call our 24/7 emergency line:</p>st
                 <p className="text-2xl font-bold">0412345678</p>
               </div>
             </div>
